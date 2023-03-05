@@ -1,0 +1,230 @@
+/* 
+    CSS Sheet for EditExercise.jsp
+*/
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    float: right;
+    margin-right: -7.5px;
+    width: 110%;
+    border-bottom: 8px solid red;
+}
+
+/* Style the top navigation links */
+.topnav a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 26px;
+    text-decoration: none;
+    color: white;
+    
+}
+
+/* Change color on hover */
+.topnav :hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+/* Setting adjusting the background image, and also setting the font */
+body {
+    letter-spacing: 1.5px;
+    font-family: Verdana, sans-serif;
+    
+    background-image: url('../Images/Background8D.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Styling the top welcome message for the user */
+#topMessage {
+    color: black;
+    text-align: center;
+    text-emphasis-color: blue;
+    margin-top: 60px;
+    margin-bottom: 70px;        
+}
+
+
+#inputButton {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+.inputBox {
+    text-align: center;
+    margin-top: 20px;    
+
+    margin-bottom: 0px;
+}
+
+#inputDateTime {
+    margin-bottom: 5px;
+}
+
+#inputFrequency {
+    margin-bottom: 5px;
+    margin-top: 25px;
+}
+
+#NA {
+    margin-left: 15px;
+}
+
+#EveryDay {
+    margin-left: 15px;
+}
+
+#EveryOtherDay {
+    margin-left: 15px;
+}
+
+#EveryWeek {
+    margin-left: 15px;
+}
+
+#ConfirmRemove {
+    margin-bottom: 5px;
+    margin-top: 25px;
+}
+
+#NoDelete {
+    margin-left: 15px;
+}
+
+#YesDelete {
+    margin-left: 15px;
+}
+
+.button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Styling the input for time */
+input[type = time] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 4px 4px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Styling the input for date */
+input[type = date] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 4px 4px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Styling the submit button for yes/no */
+input[type=submit] .yesno {                
+    padding: 6px 16px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 1px;
+
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    font-weight: 700;
+}
+
+/* Styling the input for text */
+input[type = text] {
+    width: 15%;
+    margin-top: -5px;
+
+    padding: 4px 4px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+}
+
+/* Styling the input for numbers */
+input[type = number] {
+    width: 10%;
+    margin-top: -5px;
+
+    padding: 4px 4px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Styling the submit button */
+input[type=submit] {                
+    padding: 6px 16px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 1px;
+
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* Styling and adjusting the extra notes input */
+#Notes {
+    resize: none;
+    width: 15%;
+    /*margin-top: -5px;*/
+
+    padding: 4px 4px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+}
+
+/* Aligning and setting margins for the current */
+.current {
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Declaring margins for the text above the input boxes */
+.input {
+    margin-bottom: 5px;
+}
+
+/* Styling the text for when done */
+.done {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: -38.5px;
+    color: black;
+    font-weight: bold;
+}
+
+.error {
+    text-align: center;
+    margin-top: -2.5%;
+    margin-bottom: 1%;
+    color: #ff0000;
+    font-weight: bold;
+}

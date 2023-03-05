@@ -1,0 +1,161 @@
+
+/* 
+    CSS Sheet for CreateExercises.jsp
+*/
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    float: right;
+    margin-right: -7.5px;
+    width: 110%;
+    border-bottom: 8px solid red;
+}
+
+/* Style the top navigation bar links */
+.topnav a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 26px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Change color on hover */
+.topnav :hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+/* Stlying the top welcome message for the user */
+#topMessage {
+    color: black;
+    text-align: center;
+    text-emphasis-color: blue;
+    margin-top: 50px;
+    margin-bottom: 60px;        
+}
+
+/* Styling the input for time */
+input[type = time] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 4px 4px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Styling the input for date */
+input[type = date] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 4px 4px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Styling the submit button */
+input[type=submit] {                
+    padding: 6px 16px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 1px;
+
+    margin-top: 0px;
+    font-weight: 700;
+    margin-top: 0px;
+}
+
+/* Aligning the submit button to the middle */
+#inputButton {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Styling the box that the user enters information in */
+.inputBox {
+    text-align: center;
+    margin-top: 20px;    
+
+    margin-bottom: 0px;
+}
+
+/* Declaring margins for the text above the input boxes */
+#inputDateTime {
+    margin-bottom: 5px;
+}
+
+/* Declaring margins for the text above the input boxes */
+#inputEmailOption {
+    margin-bottom: 5px;
+    margin-top: 25px;
+}
+
+/* Declaring margins for the text above the input boxes */
+#yes {
+    margin-left: 15px;
+}
+
+/* Declaring margins for the text above the input boxes */
+#no {
+    margin-left: 15px;
+}
+
+/* Declaring margins for the text above the input boxes */
+#inputFrequency {
+    margin-bottom: 5px;
+    margin-top: 25px;
+}
+
+/* Declaring margins for the text above the input boxes */
+.input {
+    margin-left: 15px;
+}
+
+/* Declaring margins for the text above the input boxes */
+#inputExercise {
+    margin-bottom: 5px;
+}
+
+/* Styling the mark tag */
+mark {
+    background-color: black;
+    color: white;
+}
+
+/* Declaring margins for the exercises drop down menu */
+#exercises {
+    margin-bottom: 200px;
+}
+
+/* Setting adjusting the background image, and also setting the font */
+body {
+    letter-spacing: 1.5px;
+    font-family: Verdana, sans-serif;
+    
+    background-image: url('../Images/Background6C.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 225%;
+}
+
+/* Styling the text for an error */
+.error {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: -38.5px;
+    color: black;
+    font-weight: bold;
+}

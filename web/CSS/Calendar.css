@@ -1,0 +1,147 @@
+/* 
+    Created on : 15-Mar-2020, 12:35:26 AM
+    Author     : shrey
+*/
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    float: right;
+    margin-right: -7.5px;
+    width: 110%;
+}
+
+/* Style the top navigation links */
+.topnav a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 26px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Change color on hover */
+.topnav :hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+/* Changing the background color and setting the font */
+body {
+    background-color: #ff0000;
+    
+    font-family: Verdana, sans-serif;
+    letter-spacing: 1.5px;
+}
+
+/* Changin the list style */
+ul {
+    list-style-type: none;
+}
+
+/* Month header */
+.month {
+    padding: 70px 0px;
+    width: 100%;
+    background: #ff0000;
+    text-align: center;
+}
+
+/* Month list */
+.month ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Month list item */
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+/* Previous button */
+.month .prev {
+    float: left;
+    padding-top: 10px;
+    margin-left: 20px;
+    width: 2%;
+    height: 2%;
+}
+
+/* Next button */
+.month .next {
+    float: right;
+    padding-top: 10px;
+    margin-right: 20px;
+    width: 2%;
+    height: 2%;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    background-color: white;
+    border: 2px solid black;
+}
+
+/* Weekdays items */
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: black;
+    text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+    padding: 8px 0;
+    background: white;
+    margin: 0;
+    border: 2px solid black;
+    border-top: 0px;
+}
+
+/* The days items */
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: black;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+    padding: 0px 6%;
+    background: #ff0000;
+    color: white !important;
+}
+
+/* Styling the links */
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Styling the day */
+.day {
+    width: 97.5%;
+    border: 1px solid black;
+    height: 170px;
+    margin-left: 10px;
+}
+
+/* Styling how exercises appear in the calendar */
+#exercises {
+    margin-bottom: -200px;
+}

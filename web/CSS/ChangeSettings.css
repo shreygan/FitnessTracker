@@ -1,0 +1,119 @@
+
+/* 
+    CSS Sheet for ChangeSettings.jsp
+*/
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    float: right;
+    margin-right: -7.5px;
+    width: 110%;
+    border-bottom: 8px solid red;
+}
+
+/* Style the top navigation bar links */
+.topnav a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 26px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Change color on hover */
+.topnav :hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+/* Stlying the top welcome message for the user */
+#topMessage {
+    color: black;
+    text-align: center;
+    text-emphasis-color: blue;
+    margin-top: 60px;
+    margin-bottom: 70px;        
+}
+
+/* Styling the box that the user enters information in */
+.inputBox {
+    text-align: center;
+    margin-top: 20px;    
+
+    margin-bottom: 0px;
+}
+
+/* Styling the input for text */
+input[type = text] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 6px 6px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+}
+
+/* Styling the submit button */
+input[type = submit] {                
+    padding: 6px 16px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 1px;
+
+    margin-top: 0px;
+    font-weight: 700;
+}
+
+/* Styling the input for passwords */
+input[type = password] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 6px 6px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+}
+
+/* Setting adjusting the background image, and also setting the font */
+body {
+    letter-spacing: 1.5px;
+    font-family: Verdana, sans-serif;
+    
+    background-image: url('../Images/Background8D.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Styling the text for a change */
+.change {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Styling the text for an error */
+.error {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    color: red;
+    font-weight: bold;
+}
+
+/* Styling the text for when the change is successful */
+.success {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    color: green;
+    font-weight: bold;
+}

@@ -1,0 +1,130 @@
+
+/*
+    CSS Sheet for NewAccount.jsp
+*/
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    float: right;
+    margin-right: -7.5px;
+    width: 110%;
+}
+
+/* Style the top navigation bar links */
+.topnav a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 26px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Change color on hover */
+.topnav :hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+/* Setting adjusting the background image, and also setting the font */
+body {
+    background-image: url('../Images/Background2B.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    letter-spacing: 1.5px;
+    font-family: Verdana, sans-serif;
+}
+
+/* Stlying the top welcome message for the user */
+#topMessage {
+    color: black;
+    text-align: right;
+    text-emphasis-color: blue;
+    margin-top: 25px;
+    margin-bottom: 5px;    
+    font-size: 50px;
+    margin-right: 27.3%;
+}
+
+/* Styling the box that the user enters information in */
+.inputBox {
+    text-align: center;
+    margin-top: 17px;    
+
+    margin-bottom: 0px;
+}
+
+/* Declaring margins for the text above the input boxes */
+.input {
+    margin-bottom: 4.5px;
+}
+
+/* Styling the input for text */
+input[type = text] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 6px 6px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+}
+
+/* Styling the input for passwords */
+input[type = password] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 6px 6px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+}
+
+/* Aligning the submit button to the middle */
+#inputButton {
+    text-align: center;
+}
+
+/* Styling the submit buttom */
+input[type=submit] {                
+    padding: 6px 16px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 1px;
+
+    margin-top: 0px;
+    font-weight: 700;
+}
+
+/* Styling the text for an error */
+.error {
+    text-align: center;
+    margin-bottom: 23px;
+    color: red;
+    font-weight: bold;
+    
+    margin-top: -.25%;
+}
+
+/* Styling and adjusting the logo into the top left */
+#image {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: -48px;
+    margin-right: 10px;
+}
+
+/* Changing default text color to white for p */
+p {
+    color: white;
+}

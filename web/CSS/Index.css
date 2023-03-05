@@ -1,0 +1,125 @@
+
+/*
+    CSS Sheet for index.jsp
+*/
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: black;
+    float: right;
+    margin-right: -7.5px;
+    width: 110%;
+}
+
+/* Style the top navigation bar links */
+.topnav a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 26px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Change color on hover */
+.topnav :hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+/* Changing default text color to white for h1 */
+h1 {
+    color: white;
+}
+
+/* Changing default text color to white for p */
+p {
+    color: white;
+}
+
+/* Setting adjusting the background image, and also setting the font */
+body {
+    background-image: url('../Images/Background1B.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    letter-spacing: 1.5px;
+    font-family: Verdana, sans-serif;
+}
+
+/* Styling the box that the user enters information in */
+.inputBox {
+    text-align: center;
+    margin-top: 20px;    
+
+    margin-bottom: 0px;
+}
+
+/* Declaring margins for the text above the input boxes */
+.input {
+    margin-bottom: 5px;
+}
+
+/* Styling the input for text */
+input[type = text] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 6px 6px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;
+}
+
+/* Styling the input for password */
+input[type = password] {
+    width: 15%;
+    margin-top: 0;
+
+    padding: 6px 6px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 1px;
+
+    font-weight: 300;    
+}
+
+/* Aligning the submit button to the middle */
+#inputButton {
+    text-align: center;
+}
+
+/* Styling the submit buttom */
+input[type=submit] {                
+    padding: 6px 16px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 1px;
+
+    margin-top: 0px;
+    font-weight: 700;
+}
+
+/* Styling the text for an error */
+.error {
+    text-align: center;
+    margin-top: -2.5%;
+    margin-bottom: 1%;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Styling and adjusting the logo into the top left */
+#image {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 15px 30px 15px;
+    margin-top: -47px;
+    margin-left: 15px;
+}

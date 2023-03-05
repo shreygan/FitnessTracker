@@ -1,0 +1,80 @@
+
+/* 
+    CSS Sheet for Main.jsp
+*/
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: transparent;
+    float: right;
+    margin-right: -7.5px;
+    /*width: 110%;*/
+    width: 81.2%;
+    /*border-bottom: 8px solid red;*/
+}
+
+/* Style the top navigation bar links */
+.topnav a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 26px;
+    text-decoration: none;
+    color: white;
+    
+}
+
+/* Change color on hover */
+.topnav :hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+/* Setting adjusting the background image, and also setting the font */
+body {
+    background-image: url('../Images/Background3P.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+    background-size: 100% 515%;    
+
+    letter-spacing: 1.5px;
+    font-family: Verdana, sans-serif;
+}
+
+/* Stlying the top welcome message for the user */
+#topMessage {
+    color: black;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 70px;   
+    font-size: 50px;
+}
+
+/* Stying the output of the exercises */
+.exercise {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+/* Making it so that the links for the exercises don't appear differnt */
+a.link:link {
+   color: #ff0000;
+   text-decoration: none;
+}
+a.link:visited {
+   color: #ff0000;
+   text-decoration: none;
+}
+a.link:hover {
+   color: #ff0000;
+   text-decoration: none;
+}
+a.link:active {
+   color: #ff0000;
+   text-decoration: none;
+}
