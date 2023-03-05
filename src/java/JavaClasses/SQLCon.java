@@ -23,6 +23,7 @@ public class SQLCon {
         String url = "jdbc:derby://localhost:1527/IA_DB";
         String user = "IAuser";
         String pass = "root";
+        String yo = "yo";
         
         try {
             conn = DriverManager.getConnection(url, user, pass);
