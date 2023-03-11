@@ -16,16 +16,14 @@
         
         <title>Exercise Tracker - Calendar</title>
         
-        <!--Setting the icon for this page-->
         <link rel="icon" href='Images/Icon.png'>
         
-        <!--Importing the CSS Sheet for this page-->
         <link href='CSS/Calendar.css' rel='stylesheet' type='text/css'/>
         
     </head>
     <body>
         
-        <!--Creating the options at the top of the page to switch between pages--> 
+        <!--top page switcher--> 
         <div class="topnav">
             <a href="index.jsp">Log Out</a>
             <a href="Settings.jsp">Settings</a>
@@ -37,10 +35,7 @@
         <br/>
         
         <%            
-            // Creating the Calendar class
             Calendar c = new Calendar();
-            
-            // Creating the CreateExercises class
             CreateExercises e = new CreateExercises();
         %>
         
@@ -77,7 +72,7 @@
             
         <ul class="days">
             <%                
-                
+                // displaying the days of the month
                 for (int i = 1; i <= (c.getDaysInMonth() + c.getFWeekday()); i++) {
                     if (i - c.getFWeekday() == c.getDate() && c.getCurrentMonth().equals(c.getMonth())) {
                         %> <li>  <div class="day"> <span class="active"> <% out.println(i - c.getFWeekday()); %> </span> <br><br> <p>

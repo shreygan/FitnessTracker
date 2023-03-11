@@ -28,7 +28,7 @@ public class CreateExercises extends Exercise{
     private static String[] allAspects;    
     private static ArrayList<String> eAspects;    
     
-    private static  Exercise e = new Exercise();
+    private static final Exercise e = new Exercise();
     
     public static String getExercise() {
         return exercise;
@@ -53,8 +53,7 @@ public class CreateExercises extends Exercise{
         allAspects[9] = "other";  
     }
     
-    public static void setExercise(String e) {
-                  
+    public static void setExercise(String e) {  
         setAllAspects();
         eAspects = new ArrayList<>();
         
@@ -129,28 +128,16 @@ public class CreateExercises extends Exercise{
         return exerciseID;
     }
     
-    public static void setInitialData(String date, String time, String sEmail, String exercise, String user) throws SQLException {
-                        
-        // Create a date object with the date of the exercise
+    public static void setInitialData(String date, String time, String sEmail, String exercise, String user) throws SQLException {                        
         Date d = Date.valueOf(date);
         
-        // Add milliseconds to the time, to match the format of a Time object
-        time += ":00";
-        
-        // Create a time object with the time of the exercise
+        time += ":00";        
         Time t = Time.valueOf(time);
                 
         boolean bEmail;
         
-        // Setting the boolean value for SQL
-        if (sEmail.equals("yes")) {
-            bEmail = true;
-        } else {
-            bEmail = false;
-        }
-        try {
-            
-            // Checks if there is already a connection to the SQL database
+        bEmail = sEmail.equals("yes");        
+        try {            
             if (SQLCon.getIsConn() == false) {
                 SQLCon.Connect();
             }
@@ -163,20 +150,16 @@ public class CreateExercises extends Exercise{
             // Using PreparedStatements to prevent SQL injections
             pstmt = SQLCon.getConn().prepareStatement(query1);
                                 
-            // Setting the PreparedStatment values
             pstmt.setDate(1, d);
             pstmt.setTime(2, t);
             pstmt.setBoolean(3, bEmail);
             pstmt.setString(4, exercise);
             pstmt.setString(5, user); 
 
-            // Executing the PreparedStatement
             pstmt.executeUpdate();
             
-            // Getting the ID for the exercise that was entered
             String query2 = "SELECT ID FROM Exercises ORDER BY ID DESC FETCH FIRST ROW ONLY";
                                     
-            // Using a Statement and ResultSet to get the ID
             stmt = SQLCon.getConn().createStatement();
             rs = stmt.executeQuery(query2);
             rs.next();
@@ -184,16 +167,14 @@ public class CreateExercises extends Exercise{
             exerciseID = rs.getInt("id");
             
             // Adding the exercise, username, and email preference in the Exercise class
-            e.addExercise(exerciseID, user, bEmail);
-        } catch (Exception ex){
-            ex.printStackTrace();
+            Exercise.addExercise(exerciseID, user, bEmail);
+        } catch (SQLException ex){
+            // do nothing
         }
         
     }
 
-    public static boolean isDatePast() {
-//        java.sql.Date cD = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-                        
+    public static boolean isDatePast() {                        
         Date cD = new Date(Calendar.getInstance().getTime().getTime());
                 
         Date d = Date.valueOf(date);
@@ -251,8 +232,8 @@ public class CreateExercises extends Exercise{
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (SQLException ex) {
+            // do nothing
         }
     }
     
@@ -269,8 +250,8 @@ public class CreateExercises extends Exercise{
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            // do nothing
         }
     }
     
@@ -287,8 +268,8 @@ public class CreateExercises extends Exercise{
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (SQLException ex) {
+            // do nothing
         }
     }
     
@@ -305,8 +286,8 @@ public class CreateExercises extends Exercise{
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (SQLException ex) {
+            // do nothing
         }
     }
     
@@ -322,8 +303,8 @@ public class CreateExercises extends Exercise{
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (SQLException ex) {
+            // do nothing
         }
     }
     
@@ -340,8 +321,8 @@ public class CreateExercises extends Exercise{
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (SQLException ex) {
+            // do nothing
         }
     }
         
@@ -358,8 +339,8 @@ public class CreateExercises extends Exercise{
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (SQLException ex) {
+            // do nothing
         }
     }
     
@@ -375,8 +356,8 @@ public class CreateExercises extends Exercise{
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (SQLException ex) {
+            // do nothing
         }
     }
 }

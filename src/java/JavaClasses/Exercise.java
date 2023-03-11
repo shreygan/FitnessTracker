@@ -24,13 +24,13 @@ import javax.mail.internet.MimeMessage;
 public class Exercise {
         
     private static String username;
-    private static ArrayList<Integer> idList = new ArrayList<>();
-    private static ArrayList<String> userList = new ArrayList<>();
-    private static ArrayList<Boolean> emailList = new ArrayList<>();
+    private static final ArrayList<Integer> idList = new ArrayList<>();
+    private static final ArrayList<String> userList = new ArrayList<>();
+    private static final ArrayList<Boolean> emailList = new ArrayList<>();
 
-    private static ArrayList<Integer> indicies = new ArrayList<>();
+    private static final ArrayList<Integer> indicies = new ArrayList<>();
     
-    private static ArrayList<Integer> isComplete = new ArrayList<>();
+    private static final ArrayList<Integer> isComplete = new ArrayList<>();
     
     private static Statement stmt;
     private static ResultSet rs;
@@ -73,8 +73,8 @@ public class Exercise {
                 userList.add(username);
                 emailList.add(rs.getBoolean("EMAIL"));
             }
-        } catch(Exception e) {
-            e.printStackTrace();
+        } catch(SQLException e) {
+            // do nothing
         }
     }
     
@@ -113,8 +113,8 @@ public class Exercise {
             s += rs.getTime("Exercisetime").toString() + " ";
             s += rs.getString("Exercise");
             
-        } catch (Exception e){
-            e.printStackTrace();
+        } catch (SQLException e){
+            // do nothing
         }
         
         return s;
@@ -135,8 +135,7 @@ public class Exercise {
             
             return rs.getString("Exercise");
             
-        } catch(Exception e) {
-            e.printStackTrace();
+        } catch(SQLException e) {
             return "";
         }
     }
@@ -156,8 +155,7 @@ public class Exercise {
             
             return rs.getDate("ExerciseDate");
             
-        } catch(Exception e) {
-            e.printStackTrace();
+        } catch(SQLException e) {
             return null;
         }
     }
@@ -177,8 +175,7 @@ public class Exercise {
             
             return rs.getTime("ExerciseTime");
             
-        } catch(Exception e) {
-            e.printStackTrace();
+        } catch(SQLException e) {
             return null;
         }
     }
@@ -215,8 +212,8 @@ public class Exercise {
             stmt = SQLCon.getConn().createStatement();
            
             stmt.executeUpdate(query);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            // do nothing
         }
     }
     
@@ -243,8 +240,8 @@ public class Exercise {
             stmt = SQLCon.getConn().createStatement();
 
             stmt.executeUpdate(query);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            // do nothing
         }
     }
     
@@ -256,76 +253,36 @@ public class Exercise {
         return "Please Choose an Option";
     }
     
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
 //    public static void main(String[] args) {
 //        sendEmail();
 //    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public static void sendEmail() {
-        // Recipient's email ID needs to be mentioned.
         String to = "shrey.gangwar21@gmail.com";
 
-        // Sender's email ID needs to be mentioned
         String from = "a@gmail.com";
 
-        // Assuming you are sending email from localhost
         String host = "73.225.150.180";
 
-        // Get system properties
         Properties properties = System.getProperties();
 
-        // Setup mail server
         properties.setProperty("mail.smtp.host", host);
 
-        // Get the default Session object.
         Session session = Session.getDefaultInstance(properties);
 
         try {
-            // Create a default MimeMessage object.
+            // Create a default MimeMessage object
             MimeMessage message = new MimeMessage(session);
 
-            // Set From: header field of the header.
             message.setFrom(new InternetAddress(from));
-
-            // Set To: header field of the header.
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-
-            // Set Subject: header field
             message.setSubject("This is the Subject Line!");
-
-            // Now set the actual message
             message.setText("This is actual message");
 
-            // Send message
             Transport.send(message);
             System.out.println("Sent message successfully....");
         } catch (MessagingException mex) {
-            mex.printStackTrace();
+            System.out.println("Send Failed.");
         }
     }
 }

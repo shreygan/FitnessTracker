@@ -23,7 +23,6 @@ public class SQLCon {
         String url = "jdbc:derby://localhost:1527/IA_DB";
         String user = "IAuser";
         String pass = "root";
-        String yo = "yo";
         
         try {
             conn = DriverManager.getConnection(url, user, pass);
@@ -33,7 +32,6 @@ public class SQLCon {
         } catch(SQLException e) {
             // Setting the variable for if there is a connection to false
             isConn = false;
-            e.printStackTrace();
         }
     }
 }

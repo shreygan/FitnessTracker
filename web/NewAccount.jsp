@@ -14,28 +14,23 @@
         
         <title>Exercise Tracker - New Account</title>
         
-        <!--Setting the icon for this page-->
         <link rel="icon" href='Images/Icon.png'>
         
-        <!--Importing the CSS Sheet for this page-->
         <link href='CSS/NewAccount.css' rel='stylesheet' type='text/css'/>
-        
     </head>
   
     <body>
         
-        <!--Creating the options at the top of the page to switch between pages--> 
+        <!--top page switcher--> 
         <div class="topnav">
         <a href="NewAccount.jsp">Create an Account</a>
         <a href="index.jsp">Login</a>
         </div>   
         
-        <!--Placing the logo in the top left corner of the page-->
         <div> <img id="image" alt="Logo" src='Images/Logo.png'> </div>
 
         <br/><br/><br/>
         
-        <!--The top message displayed on the page-->
         <h1 id="topMessage">Creating an Account</h1>        
 
         <br/>
@@ -54,7 +49,6 @@
             <br/><br/>
 
             <%
-                // Creating the user class
                 User u = new User();
                                 
                 // Seeing if the user has pressed submit
@@ -71,12 +65,10 @@
                     // Setting the user's FirstName in a session attribute, for use in later pages
                     session.setAttribute("FName", FName);
                         
-                    // Calling the checkNewUser Method in User to see if the user entered valid information
                     int check = u.checkNewUser(FName, LName, Email, User, Pass1, Pass2);
                         
                     // If the checkNewUser method returns 0, that means that they entered the correct informatiom
                     if (check == 0) {
-                        // Adding the user and the users data to the database
                         u.addUser(FName, LName, Email, User, Pass1);
                             
                         // Setting the user's username and First Name in a session attribute, for use in later pages
@@ -87,38 +79,28 @@
                         // to make sure that no information is printed twice on the main page
                         session.setAttribute("Iteration", 1);
                             
-                        // Sending the user to the main page
                         response.sendRedirect("Main.jsp");
                         
                     // If checkNewUser returns a number between 1-5, there is an error    
                     } else if (check == 1) {
-                        // Get error #1 from User, and printing it to show the user
                         %> <div class="error"> <% out.println(u.getError1()); %> </div> <%
                     } else if (check == 2) {
-                        // Get error #2 from User, and printing it to show the user
                         %> <div class="error"> <% out.println(u.getError2()); %> </div> <%
                     } else if (check == 3) {
-                        // Get error #3 from User, and printing it to show the user
                         %> <div class="error"> <% out.println(u.getError3()); %> </div> <%
                     } else if (check == 4) {
-                        // Get error #4 from User, and printing it to show the user
                         %> <div class="error"> <% out.println(u.getError4()); %> </div> <%
                     } else if (check == 5) {
-                        // Get error #5 from User, and printing it to show the user
                         %> <div class="error"> <% out.println(u.getError5()); %> </div> <%
                     }
                 } else {
-                    // Adding some spaces if there is an error to keep the background balanced
                     %> <br/><br/> <%
                 }
             %>
             
-            <!--The submit button-->
             <div id="inputButton"> <input type="submit" value="Enter" name = "submit"/> </div>     
             
         </form>
-
-            <!--Page breaks to make sure that the background fits nicely and isn't squished-->
             <br/><br/>
             <br/><br/>
             <br/>

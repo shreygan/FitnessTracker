@@ -11,20 +11,16 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <!--Printing the exercise in the title-->
         <title>Exercise Tracker - <% out.println(session.getAttribute("Exercise").toString()); %> </title>
         
-        <!--Setting the icon for this page-->
         <link rel="icon" href='Images/Icon.png'>
         
-        <!--Importing the CSS Sheet for this page-->
         <link href='CSS/EditExercise.css' rel='stylesheet' type='text/css'/>
         
     </head>
     
     <body>
-        
-        <!--Creating the options at the top of the page to switch between pages--> 
+        <!--top page switcher--> 
         <div class="topnav">
             <a href="index.jsp">Log Out</a>
             <a href="Settings.jsp">Settings</a>
@@ -36,14 +32,10 @@
         <br/><br/><br/><br/>
         
         <%
-            // Creating the CreateExercises class
-            CreateExercises e = new CreateExercises();
-            
-            // Creating the User class
+            CreateExercises e = new CreateExercises();            
             User u = new User();            
         %>
         
-        <!--The top message displayed on the page-->
         <h1 id="topMessage"><% out.println(session.getAttribute("Exercise").toString()); %> </h1>
         
         <form action="EditExercise.jsp">
@@ -85,12 +77,8 @@
                         <label for="yesDelete">Yes</label>
                     <div>
                 <%
-            } else if (session.getAttribute("ModifyValue").equals("Complete")) {
-                                
-                // Setting the exercise in CreateExercises
-                e.setExercise(session.getAttribute("Exercise").toString());
-                
-                // Setting the exerciseID in CreateExercises
+            } else if (session.getAttribute("ModifyValue").equals("Complete")) {                                
+                e.setExercise(session.getAttribute("Exercise").toString());                
                 e.setExerciseID(Integer.parseInt(session.getAttribute("ExerciseID").toString()));
                                              
                 // Showing input fields to the user, based on what their exercise needs
@@ -133,7 +121,6 @@
             }
         %>
                                 
-        <!--The submit button-->
         <div id="inputButton"> <input type="submit" value="Submit" name = "submit"/> </div>   
         
         <%
@@ -148,13 +135,11 @@
                     
                     // If checkDateTime returns 4, there is an error
                     if (check == 4) {
-                        // Get error #4 from CreateExercises, and print it to show the user
                         %>  <div class="error"> <% out.println(e.getError4()); %> </div> <%
                     } else {
                         // Change the Date/Time for the exercise
                         e.changeDateTime(request.getParameter("date"), request.getParameter("time"), Integer.parseInt(session.getAttribute("ExerciseID").toString()));
 
-                        // Redirect the user to the main page 
                         response.sendRedirect("Main.jsp");
                     }
                 } if (session.getAttribute("ModifyValue").equals("Frequency")) {
@@ -172,7 +157,6 @@
                         // Remove the exercise
                         e.remove(request.getParameter("NoDelete"), request.getParameter("YesDelete"), Integer.parseInt(session.getAttribute("ExerciseID").toString()));
                         
-                        // Send the user to main page
                         response.sendRedirect("Main.jsp");
                     }
                 } else if (session.getAttribute("ModifyValue").equals("Complete")) {
@@ -222,7 +206,6 @@
                 }                
             }
         %>
-        
         </form>
     </body>
 </html>

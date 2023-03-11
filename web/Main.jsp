@@ -20,20 +20,16 @@
         
         <title>Exercise Tracker - Main</title>
         
-        <!--Setting the icon for this page-->
         <link rel="icon" href='Images/Icon.png'>
         
-        <!--Importing the CSS Sheet for this page-->
         <link href='CSS/Main.css' rel='stylesheet' type='text/css'/>
         
     </head>
     
     <body>
-        
-        <!--Creating the user class-->
         <% User u = new User();%>
         
-        <!--Creating the options at the top of the page to switch between pages--> 
+        <!--top page switcher--> 
         <div class="topnav">
             <a href="index.jsp">Log Out</a>
             <a href="Settings.jsp">Settings</a>
@@ -50,13 +46,11 @@
             String Name = session.getAttribute("FName").toString();
         %>
         
-        <!--The top message displayed on the page, and adding the name of the user-->
         <h1 id="topMessage">Welcome <% out.println(Name); %> </h1>   
         
         <h2 align='center'>Today's To-Do List</h2>
       
         <%   
-            // Creating the CreateExercises class
             CreateExercises e = new CreateExercises();
         
             // Setting the username of the user in CreateExercises
@@ -72,43 +66,30 @@
             
             // Creating an ArrayList to add to, for exercises that have been printed on the screen
             // Not using diamond operator because JSP doesn't compile properly with it
-            ArrayList<Integer> printedID = new ArrayList<Integer>();
+            ArrayList<Integer> printedID = new ArrayList<>();
             
             // Setting a variable for how many times the loop needs to run
             int loops = temp.size();
                                     
             for (int i = 0; i < loops; i++) {   
-                // Making a scanner for all that data related to the exercise
                 Scanner sc = new Scanner(e.printExercise(session.getAttribute("Username").toString(), temp.get(0)));
                 
-                // Getting the id of the exercise
-                int tempID = sc.nextInt();  
-                
-                // Getting the date of the exercise
-                String date = sc.next();
-                
-                // Getting the time of the exercise
-                String time = sc.next();
-                
-                // Getting the name of the exercise
+                int tempID = sc.nextInt();                  
+                String date = sc.next();                
+                String time = sc.next();                
                 String exercise = sc.next();
                 
                 // Setting the exercise into a session Attribute, for later use by other pages
                 session.setAttribute("Exercise", exercise);
                                 
-                // Getting a Date object for the current date 
                 Date cD = new Date(Calendar.getInstance().getTime().getTime());
                 
-                // Getting a Date oject for the date of the exercise
                 Date d = Date.valueOf(date);
                 
                 // Seeing if the date is today's, if the exercise is already printed, and if the exercise has been completed
-                if (!printedID.contains(tempID) && d.getTime()/1000000000 == cD.getTime()/1000000000 && !e.getIsComplete(tempID)) {     
-                        
-                    // Getting the hour of the exercise
+                if (!printedID.contains(tempID) && d.getTime()/1000000000 == cD.getTime()/1000000000 && !e.getIsComplete(tempID)) {                             
                     int h = Integer.parseInt(time.substring(0,2));
                     
-                    // Checking if the time of the exercise is AM, or PM
                     String AMPM;
                     if (h < 12) {
                         AMPM = "AM";
@@ -117,10 +98,8 @@
                         h = h % 12;
                     }
                     
-                    // Creating the String that will be printed onto the page 
                     String output = h + time.substring(2,5) + AMPM + "- " + exercise;
                     
-                    // Printing the exercise
                     %> <div class="exercise"> <a class="link" href="Exercise.jsp?value=<%out.println(exercise);%>&id=<%out.println(tempID);%>"> <% out.println(output); %> </a> </div> <%
                     
                     // Sets the session attribute for iteration2 to 1 (first time), for use in later pages

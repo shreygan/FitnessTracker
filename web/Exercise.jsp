@@ -12,7 +12,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <%
-            // Creating the CreateExercises class
             CreateExercises e = new CreateExercises();
             
             // If this is the first time the user is visiting this page, set some Attributes
@@ -22,20 +21,16 @@
             }
         %>
         
-        <!--Printing the exercise in the title-->
         <title>Exercise Tracker - <% out.println(request.getParameter("value")); %> </title>
         
-        <!--Setting the icon for this page-->
         <link rel="icon" href='Images/Icon.png'>
         
-        <!--Importing the CSS Sheet for this page-->
         <link href='CSS/Exercise.css' rel='stylesheet' type='text/css'/>
         
     </head>
     
     <body>        
-        
-        <!--Creating the options at the top of the page to switch between pages--> 
+        <!--top page switcher-->  
         <div class="topnav">
             <a href="index.jsp">Log Out</a>
             <a href="Settings.jsp">Settings</a>
@@ -46,7 +41,6 @@
         
         <br/><br/><br/><br/>
         
-        <!--The top message displayed on the page-->
         <h1 id="topMessage"> <% out.println(request.getParameter("value")); %> </h1>
                 
         <form action="Exercise.jsp"> 
@@ -77,13 +71,10 @@
             // Setting the session Attribute, to indicate that the user has already visited this page
             // to make sure data isn't printed/set repeatedly
             session.setAttribute("Iteration2", 2);
-        %>
-        
-        <!--Page breaks to make sure that the background fits nicely and isn't squished-->
+        %>        
         <br/><br/><br/><br/><br/>
         <br/><br/><br/><br/><br/>
         <br/><br/><br/><br/><br/>
         <br/>
-        
     </body>
 </html>

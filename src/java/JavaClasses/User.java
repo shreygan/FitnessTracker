@@ -4,33 +4,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-// Importing jasypt, the password encryptor
 import org.jasypt.util.text.BasicTextEncryptor;
 
 public class User {
     
-    // Creating a encryptor object for password encryption
-    private BasicTextEncryptor ENC = new BasicTextEncryptor();  
+    private final BasicTextEncryptor ENC = new BasicTextEncryptor();  
     
     private PreparedStatement pstmt;
     private Statement stmt;
     private ResultSet rs;
     
-    // Encrypted password
     private String encPass;
     
-    public void addUser(String FName, String LName, String Email, String User, String Pass) throws SQLException {
-                
-        // Setting the encryptors password
-        ENC.setPassword("bruh");
-        
-        // Encrypting the passsword the user entered
+    public void addUser(String FName, String LName, String Email, String User, String Pass) {                
+        ENC.setPassword("bruh");        
         encPass = ENC.encrypt(Pass);
         
-        try {
-            
-            // Connecting the the database if not already done 
+        try {            
             if (SQLCon.getIsConn() == false) {
                 SQLCon.Connect();
             }
@@ -51,15 +41,13 @@ public class User {
 
             pstmt.executeUpdate();
             
-        } catch (Exception exc) {
-            exc.printStackTrace();
+        } catch (SQLException exc) {
+            System.out.println("SQL Error");
         }
     }
     
     public int checkUser(String user) {
-        try {
-            
-            // Connecting the the database if not already done 
+        try {            
             if (SQLCon.getIsConn() == false) {
                 SQLCon.Connect();
             }
@@ -73,27 +61,21 @@ public class User {
             rs.next();
             
             try {
-                
                 // If result set has a piece of data, it means that the username is already taken
                 String temp = rs.getString("Username");
                 return 1;
-            } catch (Exception e) {
-                e.printStackTrace();
-                
+            } catch (SQLException e) {                
                 // If it fails on getting another piece of data, the username is unique
                 return 0;
             }
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 1;
         }
     }
     
     public int checkEmail(String email) {
-        try {
-            
-            // Connecting the the database if not already done 
+        try {            
             if (SQLCon.getIsConn() == false) {
                 SQLCon.Connect();
             }
@@ -107,19 +89,15 @@ public class User {
             rs.next();
             
             try {
-                
                 // If result set has a piece of data, it means that the username is already taken
                 String temp = rs.getString("Username");
                 return 1;
-            } catch (Exception e) {
-                e.printStackTrace();
-                
+            } catch (SQLException e) {                
                 // If it fails on getting another piece of data, the username is unique
                 return 0;
             }
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 1;
         }
     }
@@ -163,11 +141,8 @@ public class User {
     
          
     public int checkUser(String User, String Pass) throws SQLException {
-        
-        // Setting a password for the encryptor
         ENC.setPassword("bruh");
         
-        // Connecting to the database if not already connected
         if (SQLCon.getIsConn() == false) {
             SQLCon.Connect();
         }
@@ -175,9 +150,7 @@ public class User {
         // Creating an SQL query to gather the password from the username that was entered by the user
         String query = "SELECT PASSWORD FROM USERS WHERE USERNAME = '" + User + "'";
         
-        // Initializing the String which will keep the de-encrypted password
-        String deEncPass = "";
-        
+        String deEncPass;        
         try {
             stmt = SQLCon.getConn().createStatement();
             rs = stmt.executeQuery(query);
@@ -196,8 +169,7 @@ public class User {
             } else {
                 return 0;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 6;
         }
     }
@@ -206,10 +178,7 @@ public class User {
         return "Password and Username Don't Match";
     }
     
-    public String getName(String User) throws SQLException {
-        
-        
-        // Connecting to the database, if not already connected
+    public String getName(String User) throws SQLException {        
         if (SQLCon.getIsConn() == false) {
             SQLCon.Connect();
         }
@@ -225,19 +194,15 @@ public class User {
 
             // Returns the firstname of the user
             return rs.getString("FIRSTNAME");
-        } catch (Exception e) {
-            
+        } catch (SQLException e) {
             // If something goes wrong, returns error
             return "error";
         }
     }
     
-    public void updateUser(String user, String column, String newData) throws SQLException {
-        
-        // Setting the password for the encryptor
+    public void updateUser(String user, String column, String newData) throws SQLException {        
         ENC.setPassword("bruh");
         
-        // Connecting to the database if not already connected
         if (SQLCon.getIsConn() == false) {
             SQLCon.Connect();
         }
@@ -256,14 +221,12 @@ public class User {
            
             stmt.executeUpdate(query);
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            // do nothing
         }
     }
     
-    public void updateMeasurement(String user, String measurement) throws SQLException {
-        
-        // Connecting to the database if not already connected
+    public void updateMeasurement(String user, String measurement) throws SQLException {        
         if (SQLCon.getIsConn() == false) {
             SQLCon.Connect();
         }
@@ -276,14 +239,12 @@ public class User {
            
             stmt.executeUpdate(query);
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            // do nothing
         }
     }
     
-    public String getMeasurement(String user, String type) throws SQLException {
-        
-        // Connecting to the database if not already done so
+    public String getMeasurement(String user, String type) throws SQLException {        
         if (SQLCon.getIsConn() == false) {
             SQLCon.Connect();
         }
@@ -292,7 +253,6 @@ public class User {
         String system = "imperial";
         
         try {
-            
             // Creating a SQL query to gather the measurement from the username of the user
             String query = "SELECT Measurement FROM Users WHERE Username = '" + user + "'";
                                     
@@ -303,30 +263,32 @@ public class User {
               
             
             system = rs.getString("Measurement");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            // do nothing
         }
         
         // Returning a String based on what type of measuring is occuring
         if (system.equals("imperial")) {
-            if (type.equals("weight")) {
-                return "lb";
-            } else if (type.equals("distance")) {
-                return "miles";
-            } else if (type.equals("height")) {
-                return "ft";
-            } else {
-                return "imperial";
+            switch (type) {
+                case "weight":
+                    return "lb";
+                case "distance":
+                    return "miles";
+                case "height":
+                    return "ft";
+                default:
+                    return "imperial";
             }
         } else {
-            if (type.equals("weight")) {
-                return "kg";
-            } else if (type.equals("distance")) {
-                return "km";
-            } else if (type.equals("height")) {
-                return "m";
-            } else {
-                return "metric";
+            switch (type) {
+                case "weight":
+                    return "kg";
+                case "distance":
+                    return "km";
+                case "height":
+                    return "m";
+                default:
+                    return "metric";
             }
         }
     }    

@@ -12,10 +12,8 @@
         
         <title>Exercise Tracker - Settings</title>
         
-        <!--Setting the icon for this page-->
         <link rel="icon" href='Images/Icon.png'>
         
-        <!--Importing the CSS Sheet for this page-->
         <link href='CSS/Settings.css' rel='stylesheet' type='text/css'/>
         
     </head>
@@ -23,11 +21,10 @@
     <body>
         
         <% 
-            // Creating the User class
             User u = new User(); 
         %>
         
-        <!--Creating the options at the top of the page to switch between pages--> 
+        <!--top page switcher--> 
         <div class="topnav">
             <a href="index.jsp">Log Out</a>
             <a href="Settings.jsp">Settings</a>
@@ -38,7 +35,6 @@
         
         <br/><br/><br/><br/>
 
-        <!--The top message displayed on the page-->
         <h1 id="topMessage">Settings</h1>  
         
         <form action="Settings.jsp">
@@ -52,20 +48,16 @@
                 </select>
             </div>
             
-            <!--The submit button-->
             <div id="inputButton"> <input type="submit" value="Submit" name = "submit"/> </div> 
             
         </form>
         
         <%
-            // Checking if the user clicked submit
             if (request.getParameter("submit") != null) {
-                // Checking if the user choose a measurement system
+                // Checking if the user chose a measurement system
                 if (request.getParameter("SystemDropDown") != null) {
-                    // Updating the users prefered measurement system
                     u.updateMeasurement(session.getAttribute("Username").toString(), request.getParameter("SystemDropDown"));
                     
-                    // Informing the user that it's done
                     %> <div class="done"> <p>Set to <% out.println(u.getMeasurement(session.getAttribute("Username").toString(), "")); %></p> </div> <%
                 }
             }
@@ -84,7 +76,6 @@
         </form>
         
         <%
-            
             // To see what the user is trying to change, and set session Attributes and redirect the user accordingly
             if (request.getParameter("changeUser") != null) {
                 session.setAttribute("ChangeValue", "Username");
@@ -97,8 +88,6 @@
                 response.sendRedirect("ChangeSettings.jsp");
             }
         %>
- 
         <br/><br/>
-        
     </body>
 </html>
