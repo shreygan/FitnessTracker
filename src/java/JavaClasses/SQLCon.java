@@ -20,8 +20,8 @@ public class SQLCon {
     public static void Connect() throws SQLException {
        
         // Creating the connection the database
-        String url = "jdbc:derby://localhost:1527/IA_DB";
-        String user = "IAuser";
+        String url = "jdbc:derby://localhost:1527/Fitness";
+        String user = "IAUser";
         String pass = "root";
         
         try {
