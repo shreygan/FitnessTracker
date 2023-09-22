@@ -1,3 +1,5 @@
+# fitness-tracker
+
 <div align="center">
     <h1>
         <img src="web/Images/Logo.png" alt="Logo" height="25px" style="margin-bottom:-3px; margin-right:0px;"> 
